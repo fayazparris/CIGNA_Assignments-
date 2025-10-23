@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product Discount Calculator</title>
+</head>
+<body>
+<h2>Product Discount Calculator</h2>
+<form id="productForm" onsubmit="return calculateTotal();">
+<label for="qty">Quantity:</label>
+<input type="number" id="qty" name="qty" required><br><br>
+<label for="price">Price per item:</label>
+<input type="number" id="price" name="price" required><br><br>
+<input type="submit" value="Calculate Total">
+</form>
+<div id="result" style="margin-top:20px;"></div>
+
+<script>
+function calculateTotal() {
+var qty = parseInt(document.getElementById('qty').value);
+var price = parseFloat(document.getElementById('price').value);
+
+// Take confirmation before calculation
+var confirmed = confirm("Do you want to proceed with the calculation?");
+if (!confirmed) return false;
+
+var discount = 0;
+if (qty > 30) {
+discount = 0.20;
+} else if (qty > 20) {
+discount = 0.15;
+} else if (qty > 10) {
+discount = 0.10;
+}
+
+var total = qty * price;
+var discountAmount = total * discount;
+var finalTotal = total - discountAmount;
+
+document.getElementById('result').innerHTML =
+"<strong>Total Amount (Before Discount):</strong> " + total.toFixed(2) + "<br>" +
+"<strong>Discount Applied:</strong> " + (discount * 100) + "%<br>" +
+"<strong>Discount Amount:</strong> " + discountAmount.toFixed(2) + "<br>" +
+"<strong>Final Amount to Pay:</strong> " + finalTotal.toFixed(2);
+
+return false; // Prevent form submission/reload
+}
+</script>
+</body>
+</html>
