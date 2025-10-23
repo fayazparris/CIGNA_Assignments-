@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Example</title>
+</head>
+<body>
+  Username: <input id="username" type="text">
+  Password: <input id="password" type="password">
+  <button id="loginBtn" onclick="login()">Login</button>
+  <div id="loginResult"></div>
+  <script>
+    let loginAttempts = 0;
+    function login() {
+      let usr = document.getElementById('username').value;
+      let pwd = document.getElementById('password').value;
+      if (usr === "user" && pwd === "pass") {
+        document.getElementById('loginResult').innerText = "Login successful.";
+        loginAttempts = 0;
+      } else {
+        loginAttempts++;
+        if (loginAttempts >= 3) {
+          alert("You have entered wrong password 3 times. Login disabled!");
+          document.getElementById('loginBtn').disabled = true;
+          document.getElementById('loginResult').innerText = "Login disabled after 3 failed attempts.";
+        } else {
+          alert("Wrong credentials! Try again.");
+          document.getElementById('loginResult').innerText = "Login failed (" + loginAttempts + " of 3).";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
