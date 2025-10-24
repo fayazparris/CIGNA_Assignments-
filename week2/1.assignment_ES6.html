@@ -1,0 +1,53 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>course management</title>
+</head>
+<body>
+<h2>course collection</h2>
+
+<input type="text" id="courseInput" placeholder="Enter course name">
+<button onclick="showCourses()">Show</button>
+<button onclick="addCourse()">Add</button>
+<button onclick="removeCourse()">Remove</button>
+<ul id="courseList"></ul>
+<script>
+
+let courses = ["Math", "Science", "English"];
+
+// c. Show available courses in list format
+function showCourses() {
+const list = document.getElementById("courseList");
+list.innerHTML = "";
+courses.forEach(course => {
+const li = document.createElement("li");
+li.textContent = course;
+list.appendChild(li);
+});
+}
+
+// d. Add a new course from textbox
+function addCourse() {
+const courseInput = document.getElementById("courseInput");
+const newCourse = courseInput.value.trim();
+if (newCourse && !courses.includes(newCourse)) {
+courses.push(newCourse);
+showCourses();
+courseInput.value = "";
+}
+}
+
+// e. Remove course entered in textbox
+function removeCourse() {
+const courseInput = document.getElementById("courseInput");
+const courseToRemove = courseInput.value.trim();
+courses = courses.filter(course => course !== courseToRemove);
+showCourses();
+courseInput.value = "";
+}
+
+// Initialize display
+showCourses();
+</script>
+</body>
+</html>
