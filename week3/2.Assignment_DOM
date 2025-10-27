@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Table Styling</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: left;
+        }
+        .alt {
+            background-color: #e2e2ff;
+        }
+    </style>
+</head>
+<body>
+    <h3>Employee Data Table</h3>
+    <table id="employeeTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Dept</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Amit Kumar</td>
+                <td>IT</td>
+                <td>amit@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Riya Sen</td>
+                <td>Marketing</td>
+                <td>riya@outlook.com</td>
+            </tr>
+            <tr>
+                <td>John Doe</td>
+                <td>Finance</td>
+                <td>onechit@yahoo.com</td>
+            </tr>
+            <tr>
+                <td>Meena Lal</td>
+                <td>HR</td>
+                <td>sundar@gmail.com</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <button id="applyStylesBtn">Apply Styles</button>
+
+    <script>
+        document.getElementById('applyStylesBtn').addEventListener('click', function() {
+            // Get all table rows from tbody
+            var rows = document.getElementById('employeeTable').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+            // Loop through rows
+            for (var i = 0; i < rows.length; i++) {
+                // Remove previous style first, for multiple clicks
+                rows[i].classList.remove("alt");
+                // Apply background color to alternate rows
+                if (i % 2 === 1) { // Even index means 2nd, 4th, etc. (alternate)
+                    rows[i].classList.add("alt");
+                }
+            }
+        });
+    </script>
+</body>
+</html>
