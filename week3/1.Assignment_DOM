@@ -48,7 +48,7 @@ deleteLink.innerText = "Delete";
 deleteLink.style.marginLeft = "10px";
 deleteLink.style.color = "blue";
 deleteLink.addEventListener("click", function(e) {
-e.stopPropagation(); // So it doesn't trigger LI's click event
+e.stopPropagation(); 
 listObj.removeChild(listItemObj);
 });
 
