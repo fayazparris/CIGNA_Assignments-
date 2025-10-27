@@ -22,7 +22,7 @@
  const listObj = document.getElementById("list1");
 const btnObj = document.getElementById("addButton");
 
-// Existing functionality for strikethrough on LI
+
 listObj.addEventListener("click", function(event) {
 if (event.target.tagName == "LI") {
 if (event.target.style.textDecoration == "line-through") {
