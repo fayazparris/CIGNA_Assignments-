@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Delegation Example</title></head>
+<body>
+
+    <h3>Adding Events Dynamically in JavaScript</h3>
+    <hr/>
+
+    <fieldset>
+        <legend>Tasks in my Hand</legend>
+        <ul id="list1" style="border:2px solid blue; padding : 30px;">
+            <li>Send E-mail</li>
+            <li>Do Shopping</li>
+        </ul>
+
+    </fieldset>
+  <br/>
+  <input  id="t1" placeholder="New Task Info..." type="text"  />
+  <button id="addButton">Add Task</button>
+
+  <script>
+ const listObj = document.getElementById("list1");
+const btnObj = document.getElementById("addButton");
+
+// Existing functionality for strikethrough on LI
+listObj.addEventListener("click", function(event) {
+if (event.target.tagName == "LI") {
+if (event.target.style.textDecoration == "line-through") {
+event.target.style.textDecoration = "none";
+} else {
+event.target.style.textDecoration = "line-through";
+}
+}
+});
+
+
+btnObj.addEventListener("click", function(event) {
+var listItemObj = document.createElement("LI");
+var textObj = document.getElementById("t1");
+
+
+listItemObj.innerText = textObj.value + " ";
+
+
+var deleteLink = document.createElement("a");
+deleteLink.href = "#";
+deleteLink.innerText = "Delete";
+deleteLink.style.marginLeft = "10px";
+deleteLink.style.color = "blue";
+deleteLink.addEventListener("click", function(e) {
+e.stopPropagation(); // So it doesn't trigger LI's click event
+listObj.removeChild(listItemObj);
+});
+
+
+listItemObj.appendChild(deleteLink);
+
+// Optional: style the new task (red)
+listItemObj.style.color = "red";
+
+listObj.appendChild(listItemObj);
+textObj.value = "";
+});
+
+   
+  </script>
+</body>
+</html>
