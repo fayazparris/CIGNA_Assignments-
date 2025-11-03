@@ -17,8 +17,9 @@ class Program
         bool hasSpecialPermission = Console.ReadLine().ToLower() == "y";
 
         int accessScore = userScore;
-        if (isAdmin) accessScore += 50;
-        if (hasSpecialPermission) accessScore += 25;
+        if (isAdmin){
+accessScore += 50;}
+        if (hasSpecialPermission) {accessScore += 25;}
 
       
         Console.WriteLine($"Total Access Score = {accessScore}");
