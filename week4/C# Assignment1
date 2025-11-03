@@ -1,0 +1,35 @@
+using System;
+
+namespace useraccess{
+
+class Program
+{
+    static void Main()
+    {
+       
+        Console.Write("Enter user level score (1 to 25): ");
+        int userScore = int.Parse(Console.ReadLine());
+
+        Console.Write("Is user an Admin? (y/n): ");
+        bool isAdmin = Console.ReadLine().ToLower() == "y";
+
+        Console.Write("Does user have Special Permission? (y/n): ");
+        bool hasSpecialPermission = Console.ReadLine().ToLower() == "y";
+
+        int accessScore = userScore;
+        if (isAdmin) accessScore += 50;
+        if (hasSpecialPermission) accessScore += 25;
+
+      
+        Console.WriteLine($"Total Access Score = {accessScore}");
+        if (accessScore >= 75)
+            Console.WriteLine("Access Status: Full Access");
+        else if (accessScore >= 50)
+            Console.WriteLine("Access Status: Admin Access");
+        else if (accessScore >= 25)
+            Console.WriteLine("Access Status: Standard Access");
+        else
+            Console.WriteLine("Access Status: Restricted Access");
+    }
+}
+}
