@@ -1,0 +1,33 @@
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
+
+using System;
+
+
+public class Program
+{
+    static void Main()
+    {
+        try
+        {
+            Console.Write("Number of elements: ");
+            int n = int.Parse(Console.ReadLine());
+            int[] arr = new int[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"Enter number {i+1}: ");
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("Numbers entered:");
+            foreach (var num in arr)
+                Console.WriteLine(num);
+        }
+        catch
+        {
+            Console.WriteLine("Invalid  Please enter a number.");
+            throw new Exception("lei Dont press enter !!!");
+        }
+    }
+}
