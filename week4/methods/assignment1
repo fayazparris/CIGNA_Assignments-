@@ -1,0 +1,23 @@
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
+
+using System;
+
+public class Program
+{
+    static void SendEmail(string sender, string recipient, string subject = "No Subject", string message = "No Message", bool isImportant = false)
+    {
+        Console.WriteLine($"From: {sender}");
+        Console.WriteLine($"To: {recipient}");
+        Console.WriteLine($"Subject: {subject}");
+        Console.WriteLine($"Message: {message}");
+        Console.WriteLine($"Important: {isImportant}");
+        Console.WriteLine();
+    }
+
+    static void Main(string[] args)
+    {
+        SendEmail("onechit@gmail.com", "surya@gmail.com", "hey", "iam from blr", true);
+        SendEmail("boss@gmail.com", "bossofboss@gmail.com"); 
+    }
+}
