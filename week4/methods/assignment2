@@ -1,0 +1,37 @@
+ using System;
+
+class Program
+{
+static double Area(double side) 
+{
+return side * side;
+}
+
+static double Area(double length, double width) 
+{
+return length * width;
+}
+
+static double Area(float radius) 
+{
+return 3.142* radius * radius;
+}
+
+static void Main(string[]args)
+{
+Console.Write("Square sidelength: ");
+double s = double.Parse(Console.ReadLine());
+
+Console.Write("Rectangle length: ");
+double l = double.Parse(Console.ReadLine());
+Console.Write("Rectangle width: ");
+double w = double.Parse(Console.ReadLine());
+
+Console.Write("Circle radius: ");
+float r = float.Parse(Console.ReadLine());
+
+Console.WriteLine($"Square area: {Area(s)}");
+Console.WriteLine($"Rectangle area: {Area(l, w)}");
+Console.WriteLine($"Circle area: {Area(r)}");
+}
+}
