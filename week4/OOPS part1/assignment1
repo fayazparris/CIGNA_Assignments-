@@ -1,0 +1,68 @@
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
+
+using System;
+
+public class Customer{
+public int Id { get; set; }
+public string Name { get; set; }
+public string City { get; set; }
+
+public Customer(){
+        Id = 0;
+        Name = "Unknown";
+    City = "Unknown";
+}
+
+public Customer(int id)
+{
+Id = id;
+Name = "-----";
+City = "----";
+}
+
+public Customer(int id, string name)
+{
+Id = id;
+Name = name;
+City = "----";
+}
+
+public Customer(int id, string name, string city)
+{
+Id = id;
+Name = name;
+City = city;
+}
+
+public void ShowDetails(){
+    // if(Id<0){
+       Console.WriteLine($"Customer Details - Id : {Id}, Name : {Name}, City : {City}"); 
+    // }
+    // else{
+    // Console.WriteLine($"  iD invalid");
+    // }
+
+}
+}
+
+internal class Program
+{
+static void Main(string [] args)
+{
+ Customer c1 = new Customer(1);
+ Customer c2 = new Customer(2,"boss","keralam");
+ Customer c3 = new Customer(11200, "smith");
+ Customer c4 = new Customer(3000, "scott", "Hyd");
+ Customer c5 =new Customer(4500,"indian","fromAmerica");
+ Customer c6=new Customer();
+
+
+c1.ShowDetails();
+c2.ShowDetails();
+c3.ShowDetails();
+c4.ShowDetails();
+c5.ShowDetails();
+c6.ShowDetails();
+}
+}
