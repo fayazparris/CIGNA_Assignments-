@@ -1,0 +1,45 @@
+using System;
+
+public class Product{
+    public int ProductId{get;set;}
+    public string ProductName{get;set;}
+    public double UnitPrice{get;set;}
+    public int Quantity{get;set;}
+}
+
+ class Program{
+    static void Main(){
+        Console.Write("are you sure want to proceed ?");
+        Console.WriteLine("");
+        Product obj=new Product();
+        while(true){
+            string input=Console.ReadLine();
+            if(input.ToLower()=="exit")
+            break;
+        
+        Console.Write("enter PID :");
+        obj.ProductId=int.Parse(Console.ReadLine());
+        
+        Console.Write("enter ProductName:");
+        obj.ProductName=Console.ReadLine();
+        // if(int.TryParse(obj.ProductName,out _)){
+        //     Console.WriteLine("invalid Input");
+        // }
+        // else{
+        //     break;
+        // }
+        
+        
+        Console.Write("enter UnitPrice: ");
+        obj.UnitPrice=int.Parse(Console.ReadLine());
+        
+        Console.Write("enter Quantity :");
+        obj.Quantity=int.Parse(Console.ReadLine());
+        
+        Console.WriteLine($"PID: {obj.ProductId}  ProductName: {obj.ProductName}  UnitPrice: {obj.UnitPrice}  Quantity: {obj.Quantity}");
+        }
+        Console.Write("exited Successfully");
+        
+        
+    }
+}
