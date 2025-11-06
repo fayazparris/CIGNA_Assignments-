@@ -1,0 +1,58 @@
+
+using System;
+
+public class Employee
+{
+
+public int Id { get; set; }
+public string Name { get; set; }
+public string Job { get; set; }
+public double Basic { get; set; }
+public double HRA { get; set; }
+public double DA { get; set; }
+public double IT { get; set; }
+public double PF { get; set; }
+public double GrossSalary { get; set; }
+
+
+public void GetGrossSalary()
+{
+HRA = Basic * 0.15;
+DA = Basic * 0.08;
+IT = Basic * 0.10;
+PF = Basic * 0.05;
+GrossSalary = Basic + HRA + DA - IT - PF;
+}
+
+
+public void PrintDetails()
+{
+Console.WriteLine("<-----Employee Details------------------");
+Console.WriteLine($"Id {Id}, Name {Name}, Job {Job}");
+Console.WriteLine($"Basic: {Basic}");
+Console.WriteLine($"HRA {HRA}, DA {DA}, IT  {IT}, PF  {PF}");
+Console.WriteLine($"Gross Salary: {GrossSalary}");
+}
+}
+
+internal class Program
+{
+static void Main(string[] args)
+{
+Employee emp = new Employee();
+Console.Write("Enter Employee Id : ");
+emp.Id = int.Parse(Console.ReadLine());
+
+Console.Write("Enter Name : ");
+emp.Name = Console.ReadLine();
+
+Console.Write("Enter Job : ");
+emp.Job = Console.ReadLine();
+
+Console.Write("Enter Basic Salary : ");
+emp.Basic = double.Parse(Console.ReadLine());
+
+emp.GetGrossSalary();
+emp.PrintDetails();
+}
+}
