@@ -1,0 +1,69 @@
+using System;
+
+interface IPayment
+{
+    void Pay(double amount);
+}
+
+class CreditCardPayment : IPayment
+{
+    public string CardNumber { get; set; }
+    public string CardHolder { get; set; }
+
+    public CreditCardPayment(string cardNumber, string cardHolder)
+    {
+        CardNumber = cardNumber;
+        CardHolder = cardHolder;
+    }
+
+    public void Pay(double amount)
+    {
+        Console.WriteLine($"Paid {amount} using Credit Card ({CardNumber})");
+    }
+}
+
+
+class UPIPayment : IPayment
+{
+    public string UPIId { get; set; }
+
+    public UPIPayment(string upiId)
+    {
+        UPIId = upiId;
+    }
+
+    public void Pay(double amount)
+    {
+        Console.WriteLine($"Paid {amount} using UPI (ID: {UPIId})");
+    }
+}
+
+
+class PaypalPayment : IPayment
+{
+    public string PaypalEmail { get; set; }
+
+    public PaypalPayment(string paypalEmail)
+    {
+        PaypalEmail = paypalEmail;
+    }
+
+    public void Pay(double amount)
+    {
+        Console.WriteLine($"Paid {amount} using Paypal ({PaypalEmail})");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        IPayment creditCard = new CreditCardPayment("1234", "oho");
+        IPayment upi = new UPIPayment("1237862123");
+        IPayment paypal = new PaypalPayment("xyz@omail.com");
+
+        creditCard.Pay(150.75);
+        upi.Pay(200.5);
+        paypal.Pay(300.50);
+    }
+}
